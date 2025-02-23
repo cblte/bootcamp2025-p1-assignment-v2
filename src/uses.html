@@ -1,46 +1,238 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bootcamp 2025 Assignment 01</title>
-    <link rel="stylesheet" href="/reset.css">
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="./tailwind.css" />
+    <link rel="stylesheet" href="./theme-toggler.css" />
+    <script src="./js/theme-toggler.js" defer>
+    </script>
 </head>
 
-<body>
+<body class="bg-base dark:bg-dbase text-text dark:text-dtext p-6 flex justify-center">
+    <div class="max-w-[800px] m-auto w-full pt-6 rounded-lg">
+        <!-- header -->
+        <header class="flex flex-col md:flex-row justify-between items-center">
+            <!-- left side logo + social icons -->
+            <div class="flex items-center space-x-4 mb-4 md:mb-0">
+                <a href="/" class="text-xl md:text-2xl font-medium hover:text-link-hover">
+                    <span class="text-amber-300">//</span>
+                    cbrueggenolte.de
+                </a>
+                <div class="flex space-x-4">
+                    <button id="lightModeButton" onclick="setSystemMode()" title="Switch to system theme"
+                        class="text-text dark:text-dtext hover:text-link-hover">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentcolor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M14.828 14.828A4 4 0 109.172 9.172a4 4 0 005.656 5.656z"></path>
+                            <path d="M6.343 17.657l-1.414 1.414"></path>
+                            <path d="M6.343 6.343 4.929 4.929"></path>
+                            <path d="M17.657 6.343l1.414-1.414"></path>
+                            <path d="M17.657 17.657l1.414 1.414"></path>
+                            <path d="M4 12H2"></path>
+                            <path d="M12 4V2"></path>
+                            <path d="M20 12h2"></path>
+                            <path d="M12 20v2"></path>
+                        </svg>
+                    </button>
+                    <button id="darkModeButton" onclick="setLightMode()" title="Switch to light mode"
+                        class="text-text dark:text-dtext hover:text-link-hover">
+                        <svg width="30" height="30" viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="M17.75,4.09L15.22,6.03L16.13,9.09L13.5,7.28L10.87,9.09L11.78,6.03L9.25,4.09L12.44,4L13.5,1L14.56,4L17.75,4.09M21.25,11L19.61,12.25L20.2,14.23L18.5,13.06L16.8,14.23L17.39,12.25L15.75,11L17.81,10.95L18.5,9L19.19,10.95L21.25,11M18.97,15.95C19.8,15.87 20.69,17.05 20.16,17.8C19.84,18.25 19.5,18.67 19.08,19.07C15.17,23 8.84,23 4.94,19.07C1.03,15.17 1.03,8.83 4.94,4.93C5.34,4.53 5.76,4.17 6.21,3.85C6.96,3.32 8.14,4.21 8.06,5.04C7.79,7.9 8.75,10.87 10.95,13.06C13.14,15.26 16.1,16.22 18.97,15.95M17.33,17.97C14.5,17.81 11.7,16.64 9.53,14.5C7.36,12.31 6.2,9.5 6.04,6.68C3.23,9.82 3.34,14.64 6.35,17.66C9.37,20.67 14.19,20.78 17.33,17.97Z" />
+                        </svg>
+                    </button>
+                    <button id="systemModeButton" onclick="setDarkMode()" title="Switch to dark mode"
+                        class="text-text dark:text-dtext hover:text-link-hover">
+                        <svg width="30" height="30" viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="M12 2A10 10 0 0 0 2 12A10 10 0 0 0 12 22A10 10 0 0 0 22 12A10 10 0 0 0 12 2M12 4A8 8 0 0 1 20 12A8 8 0 0 1 12 20V4Z" />
+                        </svg>
+                    </button>
 
-    <header>
-
-        <span><a href="/">Carsten's Website</a></span>
-        <span>A blog about this and that and more. 👋</span>
-
-        <nav>
-            <a href="#">Journal</a>
-            <a href="#">Topics</a>
-            <a href="/now.html">Now</a>
-            <strong>Uses</strong>
-            <a href="#">About</a>
-            <a href="#"><span class="search-icon">🔎</span></a>
+                    <a href="mailto:mail@cbrueggenolte.de" class="text-text dark:text-dtext hover:text-link-hover">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentcolor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="icon icon-tabler icons-tabler-outline icon-tabler-mail">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M3 7a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7z"></path>
+                            <path d="M3 7l9 6 9-6"></path>
+                        </svg>
+                    </a>
+                    <a href="/rss/" class="hover:text-link-hover">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentcolor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="icon icon-tabler icons-tabler-outline icon-tabler-rss">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M5 19m-1 0a1 1 0 102 0 1 1 0 10-2 0"></path>
+                            <path d="M4 4a16 16 0 0116 16"></path>
+                            <path d="M4 11a9 9 0 019 9"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <!-- right side: subtitle -->
+            <div class="text-text italic">
+                <span class="">A blog about this and that and more. 👋</span>
+            </div>
+        </header>
+        <!-- navigation box -->
+        <nav class="mt-6 py-4 px-6 bg-element  dark:bg-delement rounded-lg">
+            <div class="flex flex-wrap items-center justify-center gap-4 md:gap-8">
+                <a href="/" class="home-icon hover:underline underline-offset-4">🏠</a>
+                <a href="#" class="hover:text-link-hover hover:underline underline-offset-4">Journal</a>
+                <a href="#" class="hover:text-link-hover hover:underline underline-offset-4">Topics</a>
+                <a href="./now.html" class="hover:text-link-hover hover:underline underline-offset-4">Now</a>
+                <strong class="underline underline-offset-4">Uses</strong>
+                <a href="#" class="hover:text-link-hover hover:underline underline-offset-4">About</a>
+                <a href="#"><span class="search-icon hover:underline underline-offset-4">🔎</span></a>
+            </div>
         </nav>
 
-        <div class="introduction">
-            <h1>Uses</h1>
+        <!--- main part starts here --->
+        <section class="mt-6">
+            <h2 class="text-2xl font-semibold">Uses</h2>
             <p>
                 Here I have an almost up-to-date list of the tools I use to get things done.
             </p>
-        </div>
-    </header>
+        </section>
 
-    <main>
-        
+        <!--- main part starts here --->
+        <section class="mt-6 border-t">
+            <h1 class="text-3xl">Sharing my Setup and Tools I use</h1>
 
-    </main>
+            <p class="text-subtle dark:text-dsubtle">Last updated on 05 February 2025</p>
 
-    <footer>
-        <p>&copy; 2025 Built with ❤️ by Carsten</p>
-    </footer>
+            <h2 class="text-2xl mt-4 mb-2">🖥 Computer Hardware</h2>
+
+            <ul class="list-disc pl-6 mt-4 mb-2">
+                <li><strong>MacBook Pro (14-inch, M1 Pro)</strong> - A very solid and fast machine. </li>
+                <li><strong>Logitech Anywhere MX</strong> - A great small device for traveling. Can connect to three
+                    devices.</li>
+                <li><strong>iPhone 15 Pro</strong> - One of the best phones ever owned.</li>
+                <li>
+                    <strong>iPad Pro 10.9 M1</strong> - With the magic keyboard it is a great travel companion.
+                </li>
+                <li>
+                    <strong>Lenovo Legion T5</strong> - i5 10th Gen, RTX20270, Windows 10 Gaming machine.
+                </li>
+                <li><strong>Logitech G203</strong> - A simple mouse for large hands.</li>
+                <li><strong>Logitech G213</strong> - Gaming Keyboard to be used when playing Factorio or Borderlands.
+                </li>
+                <li>
+                    <strong>LG 32GK650F</strong> - a great 32&quot;monitor with multiple inputs for PC, Mac and
+                    Switch.
+                </li>
+                <li>
+                    <strong>Synology DS215j</strong> - New harddrives, offline, email-archive and -backup. Temporary
+                    storage for various things.
+                </li>
+                <li><strong>ASUSTOR AS6702T</strong> - Modern NAS for Docker services, file archives, Proxmox Backups.
+                </li>
+                <li>
+                    <strong>Minisforum i5</strong> - Proxmox host, private Nextcloud instance and Factorio server.
+
+                </li>
+                <li>
+                    <strong>Nintendo Switch</strong> - For all those Zelda games.
+                </li>
+                <li><strong>Nintendo 2DS XL</strong> - For all those NDS games I havent played yet&#39;.</li>
+                <li>
+                    <strong>Anbernic RG353</strong> - A great and portable Gameboy sized portable emulation station.
+
+                </li>
+                <li>
+                    <strong>Bambulap P1S</strong> - After owning an Ender 3 V2 neo, I made the switch and since then
+                    it has been printing something almost every day.
+                </li>
+            </ul>
+
+            <h2 class="text-2xl mt-4 mb-2">Desk Setup</h2>
+            <ul class="list-disc pl-6 mt-4 mb-2">
+                <li><strong>IKEA Idasen 160x80</strong> - A great hight adustable desk. A bit pricy but worth every
+                    penny as it carries a lot.</li>
+                <li><strong>beyerdynamic DT 770 PRO</strong> - You need good headphones when you want to listen to good
+                    music.</li>
+                <li><strong>SteelSeries Arctis 7+</strong> - You need a good headset when playing games with your
+                    friends. Discord ClearCast support, two audio devices for Game and Chat which you can balance.</li>
+                <li><strong>X23 Walkingpad</strong> - A walking pad for the walk and run during home office times.</li>
+            </ul>
+
+            <h2 class="text-2xl mt-4 mb-2">Technologies I like to work with</h2>
+            <p>I currently enjoy working with Kubernettes, Python, Java. I&#39;m also open to new things that enable me
+                to solve problems better. And, of course, good old vanilla HTML, CSS, and some JavaScript! I starting
+                learning about TypeScript, Astro, Tailwind CSS, and Vite (to name a few). 🤠</p>
+
+            <h2 class="text-2xl mt-4 mb-2">🛠️ Software</h2>
+            <p>Here is an uncomplete list of software I use on a regular and almost daily basis.</p>
+            <ul class="list-disc pl-6 mt-4 mb-2">
+                <li>Mullvad Browser for the general browsing of the broken web.</li>
+                <li>Safari and Firefox for browsing, development and homelab management.</li>
+                <li>Ghostty - switch to this after being a long term user of iTerm2.</li>
+                <li>Raycast - Launcher and a general usefull utility for automation and shortcuts. Better than
+                    Spotlight.</li>
+                <li>Bitwarden - It replaced 1Password long time ago and I do not want to go back! Syncing with a private
+                    selfhosted vaultwarden instance.</li>
+                <li>Apple Notes for transient notes</li>
+                <li>TiddlyWiki for evergreen notes (also replaced DayOne in 2024)</li>
+                <li>FeatherWiki</li>
+                <li>Apple Messages - Most of the people I communicate with use Appple Messages</li>
+                <li>Signal Messenger - For the non Apple Messages people.</li>
+                <li>Discord - For all the talk during a gaming session.</li>
+                <li>Deezer and Apple Music</li>
+                <li>ImageOptim - A tiny and simple tool to improve file sizes of images.</li>
+                <li>Affinity Photo - it is just one of the best and affordable photo editing software I know.</li>
+                <li>ChatGPT - The desktop version ofers a nice keyboard shortcut and gives you a floating window.</li>
+            </ul>
+
+            <h2 class="text-2xl mt-4 mb-2">Software for programming</h2>
+            <ul class="list-disc pl-6 mt-4 mb-2">
+                <li>VSCodium and sometimes Visual Studio Code</li>
+                <li>Fira Code, Fira Mono, Victor Mono - great monospaced fonts which replaced the most common ones like
+                    Consolas or Inconsolata.</li>
+                <li>Catpuccin Macchiato - my new favorite color pack for 2025. Used Cobalt2 and Synthwave&#39;84 in the
+                    past.</li>
+                <li>fish - switch from zsh sometime in the beginning of 2024. Never want to look back.</li>
+                <li>brew - my package manager of choice. I mean, there is no other choice than good brew&#39;ing.</li>
+                <li>Ghostty - see above. My new terminal of choice.</li>
+            </ul>
+
+            <h2 class="text-2xl mt-4 mb-2">Tools / Services</h2>
+            <ul class="list-disc pl-6 mt-4 mb-2">
+                <li>Bitwarden and self-hosted Vaultwarden (replaced 1Password a long time ago)</li>
+                <li>Duolingo</li>
+                <li>Uberspace for hosting and email.</li>
+                <li>Apple Mail with my own domain. Heavily using the hide-my-email-feature. (Replaced mailgw.com)</li>
+                <li>Used Mailbox.com, Tuta(nota) and mailgw.com in the past. Still recommending to pay for you email!
+                </li>
+                <li>GitHub</li>
+                <li>desec.io - dynamic dns done right enabling my homelab service to be reachable from outside.</li>
+                <li>ChatGPT - Even when it makes mistakes sometimes, it is still faster than most searches on
+                    StackOverflow. Money well spend on a monthly subscription.</li>
+                <li>Claude.ai - It is sometimes superior to ChatGPT. Also, money well spend on a monthly subscription.
+                    Don&#39;t know if I want to pay for both of them.</li>
+                <li>Netlify and Vercel for storing and hosting smaller projects for free.</li>
+            </ul>
+
+            <h2 class="text-2xl mt-4 mb-2">🎒 Every Day Carry</h2>
+            <ul class="list-disc pl-6 mt-4 mb-2">
+                <li>Backpack - Tasmanian Tiger TT Essential L - My 15l daypack. One of the best I ever bought.</li>
+                <li>Water - WMF 700ml drink bottle</li>
+                <li>SecId Wallet</li>
+            </ul>
+
+        </section>
+
+        <footer class="mt-10 border-t border-rosepine-overlay pt-4 text-center text-text text-sm">
+            <p>
+                &copy; 2025 Built with ❤️ by Carsten and hosted on
+                <a href="#" class="text-link hover:text-link hover:underline underline-offset-4">asteroids</a>.
+            </p>
+        </footer>
+    </div>
 </body>
 
 </html>

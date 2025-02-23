@@ -2,7 +2,8 @@
   "scripts": {
     "tailwind": "tailwindcss  -i ./src/styles.css -o ./src/tailwind.css --minify  & live-server  ",
     "dev": " live-server ./src & tailwindcss -i ./src/styles.css -o ./src/tailwind.css --minify --watch ",
-    "start": "live-server ./ "
+    "start": "live-server ./dist ",
+    "build": "mkdir -p dist && tailwindcss -i ./src/styles.css -o ./src/tailwind.css --minify && cp -r src/* dist/"
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.0.8",
