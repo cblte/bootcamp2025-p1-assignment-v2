@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@theme {
+    /* Light Theme Colors */
+    --color-base: #FAFAFA;
+    /* Light background */
+    --color-element: #F0F0F0;
+    /* Light elements */
+    --color-text: #5C6773;
+    /* Dark text */
+    --color-link: #55B4D4;
+    /* Cyan link */
+    --color-link-hover: #FF9940;
+    /* Orange link hover */
+    --color-accent: #FFCC66;
+    /* Yellow accent */
+    --color-subtle: #A2A2A2;
+    /* Subtle elements */
+
+    /* Dark Theme Colors */
+    --color-dbase: #0A0E14;
+    /* Dark background */
+    --color-delement: #1F2430;
+    /* Darker elements */
+    --color-dtext: #B3B1AD;
+    /* Light text */
+    --color-dlink: #39BAE6;
+    /* Cyan link */
+    --color-dlink-hover: #FF8F40;
+    /* Orange link hover */
+    --color-daccent: #FFCC66;
+    /* Yellow accent */
+    --color-dsubtle: #3E4B59;
+    /* Subtle elements */
+
+}

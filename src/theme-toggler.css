@@ -1,0 +1,18 @@
+#systemModeButton,
+#darkModeButton,
+#lightModeButton {
+    display: none;
+}
+
+/* When the theme is changed, buttons will fade into place */
+html[data-theme="dark"] #darkModeButton {
+    display: inline;
+}
+
+html[data-theme="light"] #lightModeButton {
+    display: inline;
+}
+
+html[data-theme="system"] #systemModeButton {
+    display: inline;
+}

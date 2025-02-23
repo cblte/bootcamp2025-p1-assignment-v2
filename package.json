@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "tailwind": "tailwindcss  -i ./src/styles.css -o ./src/tailwind.css --minify  & live-server  ",
+    "dev": " live-server ./src & tailwindcss -i ./src/styles.css -o ./src/tailwind.css --minify --watch ",
+    "start": "live-server ./ "
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.0.8",
+    "@tailwindcss/vite": "^4.0.8",
+    "live-server": "^1.2.2",
+    "tailwindcss": "^4.0.8"
+  }
+}
